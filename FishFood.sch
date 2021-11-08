@@ -5,8 +5,8 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Automatic Fish Feeder"
-Date "2021-10-27"
-Rev "0.1"
+Date "2021-11-07"
+Rev "0.3"
 Comp "Mohammed Aladwani, Travis Johnson, Trueman Singleton, Zak Smith, "
 Comment1 ""
 Comment2 ""
@@ -18,7 +18,7 @@ L Motor:Motor_Servo M1
 U 1 1 6175F85B
 P 7600 2550
 F 0 "M1" H 7932 2615 50  0000 L CNN
-F 1 "Motor_Servo" H 7932 2524 50  0000 L CNN
+F 1 "Servo Motor SER0006 4.8V " H 7932 2524 50  0000 L CNN
 F 2 "" H 7600 2360 50  0001 C CNN
 F 3 "http://forums.parallax.com/uploads/attachments/46831/74481.png" H 7600 2360 50  0001 C CNN
 	1    7600 2550
@@ -72,17 +72,6 @@ F 3 "~" H 2200 3000 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	2200 2850 2200 2750
-$Comp
-L MCU_Microchip_ATmega:ATmega328P-PU U1
-U 1 1 6179F916
-P 4450 3100
-F 0 "U1" H 3806 3146 50  0000 R CNN
-F 1 "ATmega328P-PU" H 3806 3055 50  0000 R CNN
-F 2 "Package_DIP:DIP-28_W7.62mm" H 4450 3100 50  0001 C CIN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/ATmega328_P%20AVR%20MCU%20with%20picoPower%20Technology%20Data%20Sheet%2040001984A.pdf" H 4450 3100 50  0001 C CNN
-	1    4450 3100
-	1    0    0    -1  
-$EndComp
 $Comp
 L ssd1306:SSD1306 U2
 U 1 1 617A1C55
@@ -163,12 +152,12 @@ Wire Wire Line
 $Comp
 L Device:Crystal Y1
 U 1 1 617A7A0B
-P 5800 2500
-F 0 "Y1" V 5754 2631 50  0000 L CNN
-F 1 "16MHz" V 5845 2631 50  0000 L CNN
-F 2 "" H 5800 2500 50  0001 C CNN
-F 3 "~" H 5800 2500 50  0001 C CNN
-	1    5800 2500
+P 5700 2550
+F 0 "Y1" V 5654 2681 50  0000 L CNN
+F 1 "16MHz" V 5745 2681 50  0000 L CNN
+F 2 "" H 5700 2550 50  0001 C CNN
+F 3 "~" H 5700 2550 50  0001 C CNN
+	1    5700 2550
 	0    1    1    0   
 $EndComp
 $Comp
@@ -185,28 +174,20 @@ $EndComp
 $Comp
 L Device:C C2
 U 1 1 617A7EFD
-P 6250 2650
-F 0 "C2" V 5998 2650 50  0000 C CNN
-F 1 "22p" V 6089 2650 50  0000 C CNN
-F 2 "" H 6288 2500 50  0001 C CNN
-F 3 "~" H 6250 2650 50  0001 C CNN
-	1    6250 2650
+P 6250 2750
+F 0 "C2" V 5998 2750 50  0000 C CNN
+F 1 "22p" V 6089 2750 50  0000 C CNN
+F 2 "" H 6288 2600 50  0001 C CNN
+F 3 "~" H 6250 2750 50  0001 C CNN
+	1    6250 2750
 	0    1    1    0   
 $EndComp
 Wire Wire Line
 	5050 2600 5200 2600
 Wire Wire Line
-	5200 2600 5200 2650
-Wire Wire Line
-	5800 2650 6100 2650
-Connection ~ 5800 2650
-Wire Wire Line
 	5050 2500 5200 2500
 Wire Wire Line
 	5200 2500 5200 2350
-Wire Wire Line
-	5800 2350 6100 2350
-Connection ~ 5800 2350
 $Comp
 L power:GND #PWR?
 U 1 1 617AACD8
@@ -218,10 +199,6 @@ F 3 "" H 6750 2550 50  0001 C CNN
 	1    6750 2550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	6400 2650 6550 2650
-Wire Wire Line
-	6550 2650 6550 2500
 Wire Wire Line
 	6550 2500 6750 2500
 Wire Wire Line
@@ -263,7 +240,7 @@ F 3 "" H 4450 4800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4450 4800 4450 4600
+	4450 4800 4450 4700
 $Comp
 L Device:R R3
 U 1 1 617B6ED4
@@ -297,12 +274,6 @@ Wire Wire Line
 Connection ~ 5850 3400
 Wire Wire Line
 	5850 3400 5950 3400
-Wire Wire Line
-	5050 3800 5350 3800
-Wire Wire Line
-	5350 3800 5350 4200
-Wire Wire Line
-	5350 4200 5450 4200
 $Comp
 L power:+5V #PWR?
 U 1 1 6179DE6E
@@ -331,8 +302,6 @@ Wire Wire Line
 	2050 2350 2200 2350
 Wire Wire Line
 	2200 2350 2200 2200
-Wire Wire Line
-	6150 4200 6150 3850
 Connection ~ 6150 3850
 Wire Wire Line
 	7350 3300 7350 3800
@@ -346,7 +315,7 @@ Text Notes 7800 4500 0    50   ~ 0
 OLED DISPLAY
 Text Notes 7650 2200 0    50   ~ 0
 MOTOR AND AUGER\n
-Text Notes 5400 4400 0    50   ~ 0
+Text Notes 5500 4250 0    50   ~ 0
 USER INPUT BUTTON
 Text Notes 1250 1900 0    50   ~ 0
 POWER INPUT
@@ -427,17 +396,15 @@ Text Label 5950 3400 0    50   ~ 0
 UNO_RESET
 Wire Wire Line
 	5850 3850 6150 3850
-Wire Wire Line
-	5850 4200 6150 4200
 $Comp
 L Switch:SW_Push SW2
 U 1 1 6183DA88
-P 5650 4200
-F 0 "SW2" H 5650 4485 50  0000 C CNN
-F 1 "SPST Mom Btn" H 5650 4394 50  0000 C CNN
-F 2 "" H 5650 4400 50  0001 C CNN
-F 3 "~" H 5650 4400 50  0001 C CNN
-	1    5650 4200
+P 5650 4100
+F 0 "SW2" H 5650 4385 50  0000 C CNN
+F 1 "SPST Mom Btn" H 5650 4294 50  0000 C CNN
+F 2 "" H 5650 4300 50  0001 C CNN
+F 3 "~" H 5650 4300 50  0001 C CNN
+	1    5650 4100
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -445,7 +412,67 @@ Wire Wire Line
 Wire Wire Line
 	7050 2000 5050 2000
 Wire Wire Line
-	5200 2350 5800 2350
+	5050 4100 5200 4100
 Wire Wire Line
-	5200 2650 5800 2650
+	5850 4100 6150 4100
+Wire Wire Line
+	6150 4100 6150 3850
+$Comp
+L Device:R R4
+U 1 1 6189033D
+P 5200 4350
+F 0 "R4" H 5270 4396 50  0000 L CNN
+F 1 "10k" H 5270 4305 50  0000 L CNN
+F 2 "" V 5130 4350 50  0001 C CNN
+F 3 "~" H 5200 4350 50  0001 C CNN
+	1    5200 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5200 4100 5200 4200
+Connection ~ 5200 4100
+Wire Wire Line
+	5200 4100 5450 4100
+Wire Wire Line
+	5200 4500 5200 4700
+Wire Wire Line
+	5200 4700 4450 4700
+Connection ~ 4450 4700
+Wire Wire Line
+	4450 4700 4450 4600
+$Comp
+L atmega328p-puz:ATmega328p-puz U1
+U 1 1 6189C3D3
+P 4450 3100
+F 0 "U1" H 3806 3146 50  0000 R CNN
+F 1 "ATmega328P-PU" H 3806 3055 50  0000 R CNN
+F 2 "Package_DIP:DIP-28_W7.62mm" H 4450 3100 50  0001 C CIN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8025-8-bit-AVR-Microcontroller-ATmega48P-88P-168P_Datasheet.pdf" H 4450 3100 50  0001 C CNN
+	1    4450 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	4300 4600 4300 4700
+Wire Wire Line
+	4300 4700 4450 4700
+Wire Wire Line
+	6550 2750 6400 2750
+Wire Wire Line
+	6550 2500 6550 2750
+Wire Wire Line
+	5200 2350 5700 2350
+Wire Wire Line
+	5700 2350 5700 2400
+Connection ~ 5700 2350
+Wire Wire Line
+	5700 2350 6100 2350
+Wire Wire Line
+	5200 2750 5700 2750
+Wire Wire Line
+	5200 2600 5200 2750
+Wire Wire Line
+	5700 2700 5700 2750
+Connection ~ 5700 2750
+Wire Wire Line
+	5700 2750 6100 2750
 $EndSCHEMATC
