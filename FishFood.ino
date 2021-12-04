@@ -1,3 +1,8 @@
+# Automatic Fish Feeder
+# This is code for an automatic fish feeder that rotates a servo motor at timed intervals that can be incremented when pressing a button.
+# PSU Team 6 - Zak Smith, Travis Johnson, Trueman Singleton and Mohammad Aladwani
+# Dec 2021
+
 
 #include <Servo.h>
 #include <Wire.h>
